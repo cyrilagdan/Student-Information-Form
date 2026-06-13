@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Information Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    input[type="text"] {
+      width: 250px;
+      height: 30px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    button {
+      width: 120px;
+      height: 35px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body id="pageBody">
+  <h2> Student Information Form </h2>
+
+  <label>Name:</label>
+  <input type="text" id="name"> <br><br>
+
+  <label>Grade Level:</label>
+  <input type="text" id="gradelevel"> <br><br>
+
+  <label>Age:</label>
+  <input type="text" id="age"> <br><br>
+
+  <label>Section:</label>
+  <input type="text" id="section"> <br><br>
+
+  <button onclick="displayInfo()">Submit</button>
+
+  <h2>Result:</h2>
+  <p id="result"></p>
+
+  <script>
+    function displayInfo() {
+      let name = document.getElementById("name").value;
+      let grade = document.getElementById("gradelevel").value;
+      let age = document.getElementById("age").value;
+      let section = document.getElementById("section").value;
+
+      let now = new Date();
+      let dateTime = now.toLocaleString();
+
+      let colors = ["#f0f8ff", "#ffe4e1", "#e6ffe6", "#ffffcc", "#e0ffff"];
+      let randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.getElementById("pageBody").style.backgroundColor = randomColor;
+
+      document.getElementById("result").innerHTML =
+        "Welcome, " + name + "!<br>" +
+        "You are enrolled in Grade " + grade +
+        ", Age " + age +
+        ", Section " + section + ".<br>" +
+        "Submitted on: " + dateTime;
+    }
+  </script>
+</body>
+</html>
